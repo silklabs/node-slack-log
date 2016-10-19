@@ -17,7 +17,7 @@ function slack_log() {
     args.push(arguments[i]);
   }
   let msg = args.join(' ');
-  display_log.apply(console, msg);
+  display_log.call(console, msg);
   if (slack) {
     slack.send({
       text: msg,
