@@ -9,8 +9,10 @@ if (process.env.SLACK_HOOK) {
   slack = new Slack(process.env.SLACK_HOOK);
 }
 
+let old_log = console.log;
+
 module.exports = () => {
-  console.log.apply(console, arguments);
+  old_log.apply(console, arguments);
   if (slack) {
     slack.send({
       text: arguments.join(' '),
