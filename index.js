@@ -24,3 +24,5 @@ function slack_log() {
     });
   }
 };
+
+module.exports = slack_log;
